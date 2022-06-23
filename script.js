@@ -22,5 +22,16 @@ function playerSelection() {
   }
 }
 
-// call playerSelection function
+// Computer Selection
+function computerSelection() {
+  // storing computer available choices inside an array
+  const computerAvailableChoices = ["rock", "paper", "scissors"];
+
+  // choosing one random value from the array
+  let computerSelection = computerAvailableChoices[Math.floor(Math.random() * computerAvailableChoices.length)];
+  console.log(computerSelection);
+}
+
+// call functions
 playerSelection();
+computerSelection();
