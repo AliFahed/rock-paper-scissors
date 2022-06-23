@@ -7,31 +7,32 @@ function playerSelection() {
   playerSelection === "ROCK") {
     // assign playerSelection to lowercase "rock"
     playerSelection = "rock";
-    // return the value of playerSelection
-    console.log(playerSelection);
   } else if (playerSelection === "paper" || playerSelection === "Paper" ||
   playerSelection === "PAPER") {
     playerSelection = "paper";
-    console.log(playerSelection);
   } else if (playerSelection === "scissors" || playerSelection === "Scissors" ||
   playerSelection === "SCISSORS") {
     playerSelection = "scissors";
-    console.log(playerSelection);
   } else {
     alert("Invalid input, Please try again!");
   }
+  // console.log(playerSelection);
+  return playerSelection;
 }
 
 // Computer Selection
 function computerSelection() {
   // storing computer available choices inside an array
   const computerAvailableChoices = ["rock", "paper", "scissors"];
-
   // choosing one random value from the array
   let computerSelection = computerAvailableChoices[Math.floor(Math.random() * computerAvailableChoices.length)];
-  console.log(computerSelection);
+  // console.log(computerSelection);
+  return computerSelection;
 }
 
-// call functions
-playerSelection();
-computerSelection();
+function playRound(playerSelection, computerSelection) {
+  console.log(`Player selected ${playerSelection} while computer selected ${computerSelection}.`);
+}
+
+// call function
+playRound(playerSelection(), computerSelection());
