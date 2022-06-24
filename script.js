@@ -58,4 +58,10 @@ function checkRoundWinner(playerSelection, computerSelection) {
   return roundResult;
 }
 
-playRound(playerSelection(), computerSelection());
+function game() {
+  for (let i = 0; i < 5; i++) {
+    playRound(playerSelection(), computerSelection());
+  }
+}
+
+game();
