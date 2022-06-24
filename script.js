@@ -25,43 +25,69 @@ function computerSelection() {
 }
 
 function playRound(playerSelection, computerSelection) {
-  console.log(`Player selected ${playerSelection} while computer selected ${computerSelection}.`);
-  let roundResult;
   if (playerSelection === computerSelection) {
+    let roundResult;
     roundResult = "Tie";
+
     console.log(roundResult);
     return roundResult;
   }
 
-  // odds of player winning the round
-  if (playerSelection === "rock" && computerSelection === "scissors") {
-    roundResult = "You Win! Rock beats Paper";
-    console.log(roundResult);
-    return roundResult;
-  } else if (playerSelection === "scissors" && computerSelection === "paper") {
+  if (playerSelection === "scissors" || computerSelection === "scissors") {
+    scissorsCases(playerSelection, computerSelection);
+  } else if (playerSelection === "rock" || computerSelection === "rock") {
+    rockCases(playerSelection, computerSelection);
+  } else if (playerSelection === "paper" || computerSelection === "paper") {
+    paperCases(playerSelection, computerSelection);
+  }
+}
+
+function scissorsCases(playerSelection, computerSelection) {
+  let roundResult;
+  if (playerSelection === "scissors" && computerSelection === "paper") {
     roundResult = "You Win! Scissors beats Paper";
-    console.log(roundResult);
-    return roundResult;
+  } else if (playerSelection === "paper" && computerSelection === "scissors") {
+    roundResult = "You Lose! Scissors beats Paper";
+  } else if (playerSelection === "rock" && computerSelection === "scissors") {
+    roundResult = "You Win! Rock beats Scissors"; 
+  } else if (playerSelection === "scissors" && computerSelection === "rock") {
+    roundResult = "You Lose! Rock beats Scissors"
+  }
+
+  console.log(roundResult);
+  return roundResult;
+}
+
+function rockCases(playerSelection, computerSelection) {
+  let roundResult;
+  if (playerSelection === "rock" && computerSelection === "scissors") {
+    roundResult = "You Win! Rock beats Scissors";
+  } else if (playerSelection === "scissors" && computerSelection === "rock") {
+    roundResult = "You Lose! Rock beats Scissors";
   } else if (playerSelection === "paper" && computerSelection === "rock") {
     roundResult = "You Win! Paper beats Rock";
-    console.log(roundResult);
-    return roundResult;
+  } else if (playerSelection === "rock" && computerSelection === "paper") {
+    roundResult = "You Lose! Paper beats Rock";
   }
 
-  // odds of computer winning the round
-  if (computerSelection === "rock" && playerSelection === "scissors") {
-    roundResult = "You Lose! Rock beats Paper";
-    console.log(roundResult);
-    return roundResult;
-  } else if (computerSelection === "scissors" && playerSelection === "paper") {
-    roundResult = "You Lose! Scissors beats Paper";
-    console.log(roundResult);
-    return roundResult;
-  } else if (computerSelection === "paper" && playerSelection === "rock") {
+  console.log(roundResult);
+  return roundResult;
+}
+
+function paperCases(playerSelection, computerSelection) {
+  let roundResult;
+  if (playerSelection === "paper" && computerSelection === "rock") {
+    roundResult = "You Win! Paper beats Rock";
+  } else if (playerSelection === "rock" && computerSelection === "paper") {
     roundResult = "You Lose! Paper beats Rock";
-    console.log(roundResult);
-    return roundResult;
+  } else if (playerSelection === "scissors" && computerSelection === "paper") {
+    roundResult = "You Win! Scissors beats Paper";
+  } else if (playerSelection === "paper" && computerSelection === "scissors") {
+    roundResult = "You Lose! Scissors beats Paper";
   }
+
+  console.log(roundResult);
+  return roundResult;
 }
 
 playRound(playerSelection(), computerSelection());
