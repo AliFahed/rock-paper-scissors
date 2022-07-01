@@ -1,23 +1,30 @@
 let playerWins = 0;
 let computerWins = 0;
 
-function playerSelection() {
-  let playerSelection = prompt("Choose 'rock', 'paper', or 'scissors'");
-  // player input should be case insensitive
-  if (playerSelection === "rock" || playerSelection === "Rock" ||
-  playerSelection === "ROCK") {
-    // assign playerSelection to lowercase to avoid comparing multiple times
-    playerSelection = "rock";
-  } else if (playerSelection === "paper" || playerSelection === "Paper" ||
-  playerSelection === "PAPER") {
-    playerSelection = "paper";
-  } else if (playerSelection === "scissors" || playerSelection === "Scissors" ||
-  playerSelection === "SCISSORS") {
-    playerSelection = "scissors";
-  } else {
-    alert("Invalid input, Please try again!");
-  }
-  return playerSelection;
+const rock = document.querySelector('#rock');
+const paper = document.querySelector('#paper');
+const scissors = document.querySelector('#scissors');
+
+rock.addEventListener('click', selectRock);
+paper.addEventListener('click', selectPaper);
+scissors.addEventListener('click', selectScissors);
+
+function selectRock() {
+  let playerSelection = 'rock';
+
+  playRound(playerSelection, computerSelection());
+}
+
+function selectPaper() {
+  let playerSelection = 'paper';
+
+  playRound(playerSelection, computerSelection());
+}
+
+function selectScissors() {
+  let playerSelection = 'scissors';
+
+  playRound(playerSelection, computerSelection());
 }
 
 function computerSelection() {
@@ -82,13 +89,3 @@ function announceWinner() {
   console.log(allRoudnsWinner);
   return allRoudnsWinner;
 }
-
-function game() {
-  for (let i = 0; i < 5; i++) {
-    playRound(playerSelection(), computerSelection());
-  }
-  
-  announceWinner();
-}
-
-game();
