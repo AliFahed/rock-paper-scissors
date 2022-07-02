@@ -22,21 +22,21 @@ scissors.addEventListener('click', selectScissors);
 function selectRock() {
   let playerSelection = 'rock';
 
-  playerChoice.textContent = playerSelection;
+  playerChoice.textContent = `You Choose: ${playerSelection}`;
   playRound(playerSelection, computerSelection());
 }
 
 function selectPaper() {
   let playerSelection = 'paper';
 
-  playerChoice.textContent = playerSelection;
+  playerChoice.textContent = `You Choose: ${playerSelection}`;
   playRound(playerSelection, computerSelection());
 }
 
 function selectScissors() {
   let playerSelection = 'scissors';
 
-  playerChoice.textContent = playerSelection;
+  playerChoice.textContent = `You Choose: ${playerSelection}`;
   playRound(playerSelection, computerSelection());
 }
 
@@ -44,7 +44,7 @@ function computerSelection() {
   const computerAvailableChoices = ["rock", "paper", "scissors"];
   // computer to choose random value from the array against the player
   let computerSelection = computerAvailableChoices[Math.floor(Math.random() * computerAvailableChoices.length)];
-  computerChoice.textContent = computerSelection;
+  computerChoice.textContent = `Computer Choose: ${computerSelection}`;
   return computerSelection;
 }
 
