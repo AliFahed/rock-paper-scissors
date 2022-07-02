@@ -64,6 +64,7 @@ function playRound(playerSelection, computerSelection) {
     result.textContent = roundResult;
     document.querySelector('.playerScore').textContent = `Your Score: ${playerWins}`;
     document.querySelector('.computerScore').textContent = `Computer Score: ${computerWins}`;
+    announceWinner();
     return roundResult;
   }
 
@@ -96,19 +97,16 @@ function checkRoundWinner(playerSelection, computerSelection) {
   result.textContent = roundResult;
   document.querySelector('.playerScore').textContent = `Your Score: ${playerWins}`;
   document.querySelector('.computerScore').textContent = `Computer Score: ${computerWins}`;
+  announceWinner();
   return roundResult;
 }
 
 function announceWinner() {
-  let allRoudnsWinner;
-  if (playerWins === computerWins) {
-    allRoudnsWinner = "It's a Tie!";
-  } else if (playerWins > computerWins) {
-    allRoudnsWinner = "You Won the Game!";
-  } else {
-    allRoudnsWinner = "You Lost the Game!"
+  if (playerWins === 5) {
+    document.querySelector('#winner').textContent = 'You Won the Game!';
+  } else if (computerWins === 5) {
+    document.querySelector('#winner').textContent = 'Game Over!';
+  } else if (playerWins === 5 && computerWins === 5) {
+    document.querySelector('#winner').textContent = "It's a Tie!";
   }
-
-  console.log(allRoudnsWinner);
-  return allRoudnsWinner;
 }
