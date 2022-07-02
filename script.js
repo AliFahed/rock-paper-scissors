@@ -1,6 +1,16 @@
 let playerWins = 0;
 let computerWins = 0;
 
+const selections = document.querySelector('#selections'); // paernt
+
+const playerChoice = document.createElement('div'); // child of selections 
+playerChoice.classList.add('playerChoice');
+selections.appendChild(playerChoice);
+
+const computerChoice = document.createElement('div'); // child of selections 
+computerChoice.classList.add('computerChoice');
+selections.appendChild(computerChoice);
+
 const rock = document.querySelector('#rock');
 const paper = document.querySelector('#paper');
 const scissors = document.querySelector('#scissors');
@@ -12,18 +22,21 @@ scissors.addEventListener('click', selectScissors);
 function selectRock() {
   let playerSelection = 'rock';
 
+  playerChoice.textContent = playerSelection;
   playRound(playerSelection, computerSelection());
 }
 
 function selectPaper() {
   let playerSelection = 'paper';
 
+  playerChoice.textContent = playerSelection;
   playRound(playerSelection, computerSelection());
 }
 
 function selectScissors() {
   let playerSelection = 'scissors';
 
+  playerChoice.textContent = playerSelection;
   playRound(playerSelection, computerSelection());
 }
 
@@ -31,6 +44,7 @@ function computerSelection() {
   const computerAvailableChoices = ["rock", "paper", "scissors"];
   // computer to choose random value from the array against the player
   let computerSelection = computerAvailableChoices[Math.floor(Math.random() * computerAvailableChoices.length)];
+  computerChoice.textContent = computerSelection;
   return computerSelection;
 }
 
