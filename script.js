@@ -62,6 +62,8 @@ function playRound(playerSelection, computerSelection) {
     computerWins += 1;
 
     result.textContent = roundResult;
+    document.querySelector('.playerScore').textContent = `Your Score: ${playerWins}`;
+    document.querySelector('.computerScore').textContent = `Computer Score: ${computerWins}`;
     return roundResult;
   }
 
@@ -92,6 +94,8 @@ function checkRoundWinner(playerSelection, computerSelection) {
   }
 
   result.textContent = roundResult;
+  document.querySelector('.playerScore').textContent = `Your Score: ${playerWins}`;
+  document.querySelector('.computerScore').textContent = `Computer Score: ${computerWins}`;
   return roundResult;
 }
 
