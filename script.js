@@ -34,6 +34,11 @@ function computerSelection() {
   return computerSelection;
 }
 
+const container = document.querySelector('#container'); //parent
+const result = document.createElement('div'); // child
+result.classList.add('result');
+container.appendChild(result);
+
 function playRound(playerSelection, computerSelection) {
   
   if (playerSelection === computerSelection) {
@@ -42,7 +47,7 @@ function playRound(playerSelection, computerSelection) {
     playerWins += 1;
     computerWins += 1;
 
-    console.log(roundResult);
+    result.textContent = roundResult;
     return roundResult;
   }
 
@@ -72,7 +77,7 @@ function checkRoundWinner(playerSelection, computerSelection) {
     computerWins += 1;
   }
 
-  console.log(roundResult);
+  result.textContent = roundResult;
   return roundResult;
 }
 
