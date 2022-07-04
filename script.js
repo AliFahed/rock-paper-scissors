@@ -104,9 +104,30 @@ function checkRoundWinner(playerSelection, computerSelection) {
 function announceWinner() {
   if (playerWins === 5) {
     document.querySelector('#winner').textContent = 'You Won the Game!';
+    document.querySelector('#playAgain').style = 'display: block;';
+    document.querySelector('#playAgain').textContent = 'Play Again?';
   } else if (computerWins === 5) {
     document.querySelector('#winner').textContent = 'Game Over!';
+    document.querySelector('#playAgain').style = 'display: block;';
+    document.querySelector('#playAgain').textContent = 'Play Again?';
   } else if (playerWins === 5 && computerWins === 5) {
     document.querySelector('#winner').textContent = "It's a Tie!";
+    document.querySelector('#playAgain').style = 'display: block;';
+    document.querySelector('#playAgain').textContent = 'Play Again?';
   }
+}
+
+const playAgain = document.querySelector('#playAgain');
+playAgain.addEventListener('click', resetGame);
+
+function resetGame() {
+  playAgain.style = 'display: none;'
+  result.textContent = '';
+  playerChoice.textContent = '';
+  computerChoice.textContent = '';
+  document.querySelector('.playerScore').textContent = 'Your Score: 0';
+  playerWins = 0;
+  document.querySelector('.computerScore').textContent = 'Computer Score: 0';
+  computerWins = 0;
+  document.querySelector('#winner').textContent = '';
 }
