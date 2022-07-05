@@ -44,7 +44,8 @@ h1 {
 
 #rock,
 #paper,
-#scissors {
+#scissors,
+#playAgain {
   font-size: 30px;
   padding: 10px;
   font-weight: bold;
@@ -54,7 +55,33 @@ h1 {
 
 #rock:hover,
 #paper:hover,
-#scissors:hover {
+#scissors:hover,
+#playAgain:hover {
   background-color: black;
   color: #fff;
+}
+
+.playerScore,
+.computerScore {
+  color: #fff;
+  font-size: 30px;
+  margin: 15px;
+}
+
+#container {
+  color: #fff;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+#selections {
+  color: #fff;
+  font-size: 22px;
+}
+
+#winner {
+  color: #fff;
+  font-size: 45px;
+  font-weight: bold;
+  margin: 10px;
 }
